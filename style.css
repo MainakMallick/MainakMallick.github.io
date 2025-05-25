@@ -445,3 +445,101 @@ a:hover { color: var(--link-hover-color); text-decoration: underline; transform:
         min-width: 100%;
     }
 }
+/* --- Technical Skills Section --- */
+#skills {
+    padding-top: 2em; /* Add some space above the skills section title */
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em; /* Space between categories */
+    margin-top: 1.5em;
+}
+
+.skills-category {
+    background-color: var(--card-bg); /* Use card background for category wrapper */
+    border-radius: 12px;
+    padding: 20px 25px; /* Padding inside category wrapper */
+    box-shadow: 0 4px 10px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.skills-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.skills-category-title {
+    font-size: 1.5em; /* Slightly smaller than section-title */
+    color: var(--text-color);
+    margin-bottom: 1em; /* Space below category title */
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid var(--accent-color-1); /* Accent line below category title */
+    display: inline-block; /* So border only spans the text width */
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Gap between skill items */
+}
+
+.skill-item {
+    background: var(--bg-color); /* Slightly different background from category wrapper */
+    padding: 8px 15px;
+    border-radius: 20px; /* Pill shape */
+    font-size: 0.95em;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Gap between icon and text */
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.skill-item:hover {
+    transform: translateY(-3px);
+    background-color: var(--accent-color-2); /* Use accent color on hover */
+    color: #fff; /* White text on hover for better contrast */
+    border-color: var(--accent-color-2);
+}
+
+.skill-item img {
+    width: 20px; /* Slightly larger icons */
+    height: 20px;
+    /* SVG filter for theme consistency, if needed */
+}
+
+/* Ensure SVG icons in skill items adapt to theme changes if they are dark by default */
+:root {
+    --svg-filter: none; /* Default for dark theme (no filter or specific dark theme filter) */
+}
+
+body.light-theme {
+    --svg-filter: invert(0); /* Example: No inversion for light theme if SVGs are already suitable */
+                               /* Or use 'invert(1)' if your SVGs are white and need to be black */
+}
+
+.skill-item img[style*="filter"],
+.tech-item img[style*="filter"] { /* Apply to existing tech-item images too */
+    filter: var(--svg-filter);
+}
+
+/* Responsive adjustments for skills section if needed */
+@media (max-width: 768px) {
+    .skills-category-title {
+        font-size: 1.3em;
+    }
+    .skill-item {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+    .skill-item img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
